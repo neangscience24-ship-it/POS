@@ -1,0 +1,56 @@
+### Variables
+@baseUrl = http://localhost:5000/api/v1/user
+@contentType = application/json
+
+### 1. Create User (JSON)
+POST {{baseUrl}}/create
+Content-Type: {{contentType}}
+
+{
+  "username": "john_cashier",
+  "password": "Password123@",
+  "email": "john.cashier@pos.com",
+  "full_name": "John Doe",
+  "role": "staff",
+  "store_id": 1,
+  "active": 1
+}
+
+### 2. Login User
+# @name login
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "pkhouch97@gmail.com",
+  "password": "123"
+}
+
+### 3. Get All Users
+GET {{baseUrl}}/getall
+Accept: {{contentType}}
+
+### 4. Search Users by Keyword
+GET {{baseUrl}}/getall?search=john&role=cashier&active=1
+Accept: {{contentType}}
+
+### 5. Get Single User by ID
+GET {{baseUrl}}/getone/1
+Accept: {{contentType}}
+
+### 6. Update User
+PUT {{baseUrl}}/update/1
+Content-Type: {{contentType}}
+
+{
+  "username": "john_cashier_updated",
+  "email": "john.cashier@pos.com",
+  "full_name": "John Doe Senior",
+  "role": "manager",
+  "store_id": 1,
+  "active": 1
+}
+
+### 7. Delete User
+DELETE {{baseUrl}}/delete/1
+Accept: {{contentType}}
